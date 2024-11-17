@@ -1,4 +1,4 @@
-# Caesar Cipher
+# Vigenere Cipher
 
 > Univercity assignment #3
 
