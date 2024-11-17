@@ -1,0 +1,56 @@
+# Editors & tools
+
+## Vim
+*.swp
+
+## Sublime text
+*.sublime-*
+!*.sublime-project
+
+## KDevelop
+.kdev4/
+
+## RemedyBG
+*.rdbg
+
+## Clangd
+.cache/
+compile_commands.json
+
+## VS 2022 related things
+.vs/
+out/
+
+## VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+## Emacs
+\#*#
+*~
+
+## RenderDoc
+/*.cap
+
+# Build artefacts
+[Bb]uild/
+
+## CMake
+CMake*Presets.json
+
+# Documentation
+
+# Python
+__pycache__
+*.egg-info
+
+## Virtual environment
+venv
+.venv
+
+venv-*
+.venv-*

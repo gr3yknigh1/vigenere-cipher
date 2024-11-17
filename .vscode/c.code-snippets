@@ -1,0 +1,47 @@
+{
+    "Header File": {
+        "scope": "c,cpp",
+        "prefix": "header",
+        "body": [
+            "#if !defined(${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_H_INCLUDED)",
+            "/*",
+            " * FILE          ${RELATIVE_FILEPATH/[\\\\]/\\//g}",
+            " *",
+            " * AUTHORS",
+            " *               ${3:fullname} <${4:email}>",
+            " *",
+            " * NOTICE        (c) Copyright ${CURRENT_YEAR} by ${3:fullname}. All rights reserved. ",
+            " */",
+            "#define ${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_H_INCLUDED",
+            "",
+            "#endif // ${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_H_INCLUDED",
+        ]
+    },
+    "Source File": {
+        "scope": "c,cpp",
+        "prefix": "source",
+        "body": [
+            "/*",
+            " * FILE          ${RELATIVE_FILEPATH/[\\\\]/\\//g}",
+            " *",
+            " * AUTHORS",
+            " *               ${3:fullname} <${4:email}>",
+            " *",
+            " * NOTICE        (c) Copyright ${CURRENT_YEAR} by ${3:fullname}. All rights reserved.",
+            " */",
+            "#include \"${TM_FILENAME_BASE}.h\"",
+            "",
+        ]
+    },
+    "Note": {
+        "prefix": [
+            "note",
+            "todo",
+            "warn",
+            "xxx"
+        ],
+        "body": [
+            "$LINE_COMMENT ${1|NOTE,TODO,WARN,XXX|}($2): $3 [$CURRENT_YEAR/$CURRENT_MONTH/$CURRENT_DATE]"
+        ]
+    }
+}

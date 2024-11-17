@@ -1,0 +1,9 @@
+[settings]
+arch=x86_64
+build_type=Release
+compiler=gcc
+compiler.version=14
+compiler.cppstd=14
+compiler.libcxx=libstdc++11
+compiler.cstd=11
+os=Linux
