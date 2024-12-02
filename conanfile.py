@@ -5,8 +5,8 @@ from conan.tools.cmake import CMakeDeps
 from conan.tools.cmake import CMakeToolchain
 
 
-class CaesarRecipe(ConanFile):
-    name = "caesar"
+class VigenereCiptherRecipe(ConanFile):
+    name = "vigenere-cipher"
     version = "0.0.0"
 
     settings = "os", "arch", "compiler", "build_type"

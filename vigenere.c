@@ -34,16 +34,18 @@ ModValueAndLoop(size_t value, size_t mod, size_t min, size_t max)
 VIGENERE_API void
 Vigenere_Encrypt(char *outBuffer, size_t outBufferSize, const char *message, const char *key)
 {
-    assert(strlen(message) == (outBufferSize - 1));
-    assert(strlen(key) == strlen(message));
+    size_t keyLength = strlen(key);
+    size_t messageLength = strlen(message);
 
-    for (size_t messageIndex = 0; messageIndex < outBufferSize; ++messageIndex) {
+    assert(messageLength == (outBufferSize - 1));
+
+    for (size_t messageIndex = 0; messageIndex < messageLength; ++messageIndex) {
         char c = message[messageIndex];
-        char k = key[messageIndex];
+        char k = key[messageIndex % keyLength];
 
-        int ascii_first = isupper(c) ? ASCII_UPPER_FIRST : ASCII_LOWER_FIRST;
+        int asciiFirst = isupper(c) ? ASCII_UPPER_FIRST : ASCII_LOWER_FIRST;
 
-        int encryptedChar = ((c + k) % ASCII_ALPHA_COUNT) + ascii_first;
+        int encryptedChar = ((c + k) % ASCII_ALPHA_COUNT) + asciiFirst;
 
         outBuffer[messageIndex] = encryptedChar;
     }
@@ -52,16 +54,18 @@ Vigenere_Encrypt(char *outBuffer, size_t outBufferSize, const char *message, con
 VIGENERE_API void
 Vigenere_Decrypt(char *outBuffer, size_t outBufferSize, const char *message, const char *key)
 {
-    assert(strlen(message) == (outBufferSize - 1));
-    assert(strlen(key) == strlen(message));
+    size_t keyLength = strlen(key);
+    size_t messageLength = strlen(message);
 
-    for (size_t messageIndex = 0; messageIndex < outBufferSize; ++messageIndex) {
+    assert(messageLength == (outBufferSize - 1));
+
+    for (size_t messageIndex = 0; messageIndex < messageLength; ++messageIndex) {
         char c = message[messageIndex];
-        char k = key[messageIndex];
+        char k = key[messageIndex % keyLength];
 
-        int ascii_first = isupper(c) ? ASCII_UPPER_FIRST : ASCII_LOWER_FIRST;
+        int asciiFirst = isupper(c) ? ASCII_UPPER_FIRST : ASCII_LOWER_FIRST;
 
-        int encryptedChar = (((c - k) + ASCII_ALPHA_COUNT) % ASCII_ALPHA_COUNT) + ascii_first;
+        int encryptedChar = (((c - k) + ASCII_ALPHA_COUNT) % ASCII_ALPHA_COUNT) + asciiFirst;
 
         outBuffer[messageIndex] = encryptedChar;
     }
